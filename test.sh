@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Clean Old Files
-#srm -rf kfd
-#rm -rf kfd_offsets
+rm -rf kfd
+rm -rf kfd_offsets
 
 # Clone kfd repository with hidedock_hidehomebar_hidelsicons branch
-#git clone -b hidedock_hidehomebar_hidelsicons https://github.com/Lrdsnow/kfd
+git clone -b hidedock_hidehomebar_hidelsicons https://github.com/Lrdsnow/kfd
 
 # Clone kfd_offsets repository
-#git clone https://github.com/Lrdsnow/kfd_offsets
+git clone https://github.com/Lrdsnow/kfd_offsets
 
 # Set og folder
 og=$PWD
@@ -44,7 +44,7 @@ for base_folder in */; do
     # Make KFD ipa:
     echo "Making ipa..."
     mkdir -p ../Payload
-    cp -r build/Release/kfd.app ../Payload/kfd.app
+    cp -r build/Release-iphoneos/kfd.app ../Payload/kfd.app
     cd "$og"
     zip -r "./${basefolder_name}/${subfolder_name}/kfd.zip" ./Payload
     mv "./${basefolder_name}/${subfolder_name}/kfd.zip" "./${basefolder_name}/${subfolder_name}/kfd.ipa"
